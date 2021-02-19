@@ -12,6 +12,7 @@ export const ADD_SMURF = "ADD_SMURF";
 export const ADD_ERROR = "ADD_ERROR";
 
 const smurfLoad = () => {return({type:SMURF_LOAD})};
+const smurfSuccess = data => {return({type: SMURF_SUCCESS, payload: data})};
 
 export const fetchSmurfs = () => dispatch => {
 
@@ -21,6 +22,7 @@ export const fetchSmurfs = () => dispatch => {
     .get('http://localhost:3333/smurfs')
     .then(res => {
         console.log(res);
+        dispatch(smurfSuccess(res.data));
     })
     .catch(err => {
         console.log(err);
