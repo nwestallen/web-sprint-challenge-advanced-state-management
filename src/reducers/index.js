@@ -1,9 +1,33 @@
+import { SMURF_LOAD, SMURF_SUCCESS, SMURF_FAIL, ADD_SMURF, ADD_ERROR } from './../actions';
 
 export const initialState = {
+    smurfs: [],
+    isLoading: false,
+    error: ''
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case SMURF_LOAD: 
+            return {
+                ...state
+            };
+        case SMURF_SUCCESS:
+            return {
+                ...state
+            };
+        case SMURF_FAIL:
+            return {
+                ...state
+            };
+        case ADD_SMURF:
+            return {
+                ...state
+            };
+        case ADD_ERROR:
+            return {
+                ...state
+            };
         default:
             return state;
     };
