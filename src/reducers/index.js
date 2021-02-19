@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SMURF_LOAD: 
             return {
-                ...state
+                ...state,
+                isLoading: true
             };
         case SMURF_SUCCESS:
             return {
