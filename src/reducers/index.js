@@ -21,7 +21,8 @@ const reducer = (state = initialState, action) => {
             };
         case SMURF_FAIL:
             return {
-                ...state
+                ...state,
+                isLoading: false
             };
         case ADD_SMURF:
             return {
