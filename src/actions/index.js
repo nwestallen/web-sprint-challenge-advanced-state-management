@@ -9,10 +9,11 @@ export const SMURF_LOAD = "SMURF_LOAD";
 export const SMURF_SUCCESS = "SMURF_SUCCESS";
 export const SMURF_FAIL = "SMURF_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
-export const ADD_ERROR = "ADD_ERROR";
+export const SET_ERROR = "SET_ERROR";
 
 const smurfLoad = () => {return({type:SMURF_LOAD})};
 const smurfSuccess = data => {return({type: SMURF_SUCCESS, payload: data})};
+const smurfFail = error => {return({type: SMURF_FAIL, payload: error})}
 
 export const fetchSmurfs = () => dispatch => {
 
@@ -26,5 +27,14 @@ export const fetchSmurfs = () => dispatch => {
     })
     .catch(err => {
         console.log(err);
+        dispatch(smurfFail(err));
     });
+};
+
+export const addSmurf = smurf => {
+    return {type: ADD_SMURF, payload: smurf};
+};
+
+export const setError = error => {
+    return {type: SET_ERROR, payload: error};
 };
